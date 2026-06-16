@@ -1,14 +1,11 @@
 name: check-jdk.ea-version.yml
 on:
-  schedule:
-    - cron: "15 8 * * *"
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
   check-jdk-early-access-version:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - name: "Check latest JDK 25 EA version"
+      - name: Check latest JDK 25 EA version
         run: ./.github/scripts/check_java_ea_version.sh
